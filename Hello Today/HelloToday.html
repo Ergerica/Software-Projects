@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HELLO TODAY!</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>"Hello! Today is <span id="day">DAY</span>."</h1>
+    <h2>"The time is <span id="time">TIME</span>.</h2>
+    <script>
+      var d = new Date();
+      var n = d.getDay();
+      var dayOfWeek = {
+        0: "Sunday",
+        1: "Monday",
+        2: "Tuesday",
+        3: "Wednesday",
+        4: "Thursday",
+        5: "Friday",
+        6: "Saturday",
+      };
+      function formatAMPM(date) {
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? "PM" : "am";
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        var strTime = hours + ":" + minutes + " " + ampm;
+        return strTime;
+      }
+      document.getElementById("time").textContent = formatAMPM(d);
+      document.getElementById("day").textContent = dayOfWeek[n];
+    </script>
+  </body>
+</html>

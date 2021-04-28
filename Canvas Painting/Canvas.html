@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <title>Canvas</title>
+  <style>
+    #background {
+      background-color: #3cc266;
+      text-align: center;
+    }
+  </style>
+  <body id="background">
+    <h2>Canvas Painting</h2>
+    <canvas
+      id="myCanvas"
+      width="900"
+      height="500"
+      style="border: 1px solid #000000; background-color: white"
+    >
+      Your browser does not support the canvas element.
+    </canvas>
+
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      var colors = ["#3cc266", "#ee9bd9", "#38a4c5", "#c23c4e", "#dacd1d"];
+      function randomColor() {
+        return colors[Math.floor(Math.random() * 5)];
+      }
+      function randomRectangle(event) {
+        var rect = event.target.getBoundingClientRect();
+        ctx.fillStyle = randomColor();
+        ctx.fillRect(
+          event.clientX - rect.left,
+          event.clientY - rect.top,
+          Math.floor(Math.random() * 40) + 5,
+          Math.floor(Math.random() * 40) + 5
+        );
+        console.log(event.clientX);
+      }
+      canvas.addEventListener("mousemove", randomRectangle);
+    </script>
+  </body>
+</html>

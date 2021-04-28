@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .item1 {
+        grid-area: header;
+        background-color: #b88383;
+      }
+      .item2 {
+        grid-area: menu;
+        background-color: #b88383;
+      }
+      .item3 {
+        grid-area: main;
+        background-color: #b88383;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-areas:
+          "header header header header "
+          "menu menu main main";
+
+        grid-template-columns: 100px 100px 100px 100px;
+        grid-gap: 10px;
+
+        padding: 10px;
+        grid-gap: 10px;
+        justify-content: center;
+
+        padding: 10px;
+      }
+
+      .grid-container > div {
+        background-color: rgba(51, 139, 98, 0.8);
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      body {
+        background-color: #ad549f;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculator</h1>
+
+    <div class="grid-container">
+      <div class="item1" id="screen"></div>
+      <div class="item2" onclick="remove()" id="delete">Delete</div>
+      <div class="item3" onclick="cleare()" id="clear">Clear</div>
+      <script>
+        var screen = document.getElementById("screen").innerHTML;
+        var mem = document.getElementById("screen");
+
+        function Display(id) {
+          screen += document.getElementById(id).innerHTML;
+          document.getElementById("screen").innerHTML = screen;
+        }
+
+        function remove() {
+          console.log(screen);
+          var l = screen.slice(0, -1);
+          screen = l;
+          document.getElementById("screen").innerHTML = screen;
+        }
+        function cleare() {
+          console.log(screen);
+          var l = "";
+          screen = l;
+
+          document.getElementById("screen").innerHTML = screen;
+        }
+        function calcul() {
+          var num = eval(screen);
+          document.getElementById("screen").innerHTML = num;
+        }
+      </script>
+      <button class="button" onclick="Display('one')" id="one">1</button>
+      <button class="button" onclick="Display('two')" id="two">2</button>
+      <button class="button" onclick="Display('three')" id="three">3</button>
+      <button class="button" onclick="Display('plus')" id="plus">+</button>
+      <button class="button" onclick="Display('four')" id="four">4</button>
+      <button class="button" onclick="Display('five')" id="five">5</button>
+      <button class="button" onclick="Display('six')" id="six">6</button>
+      <button class="button" onclick="Display('minus')" id="minus">-</button>
+      <button class="button" onclick="Display('seven')" id="seven">7</button>
+      <button class="button" onclick="Display('eight')" id="eight">8</button>
+      <button class="button" onclick="Display('nine')" id="nine">9</button>
+      <button class="button" onclick="Display('multi')" id="multi">*</button>
+      <button class="button" onclick="Display('zero')" id="zero">0</button>
+      <button class="button" onclick="Display('dot')" id="dot">.</button>
+      <button class="button" onclick="Display('divi')" id="divi">/</button>
+      <button class="button" onclick="calcul()" id="equals">=</button>
+    </div>
+  </body>
+</html>

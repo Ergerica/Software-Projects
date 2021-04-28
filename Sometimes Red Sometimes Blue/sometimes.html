@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sometimes</title>
+  </head>
+  <body>
+    <script>
+      var rand = Math.floor(Math.random() * 3) + 1;
+      console.log(rand);
+      var dict = {
+        1: "red",
+        2: "blue",
+        3: "green",
+      };
+      document.body.style.backgroundColor = dict[rand];
+    </script>
+  </body>
+</html>

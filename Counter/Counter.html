@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .background {
+        color: white;
+        background: repeating-linear-gradient(
+          45deg,
+          #606dbc,
+          #606dbc 10px,
+          #465298 10px,
+          #465298 20px
+        );
+      }
+      .ce {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        font-size: 600px;
+      }
+      .me {
+        padding-top: 50px;
+        font-size: 550%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .inp {
+        font-size: 150%;
+        text-align: center;
+        padding-top: 0px;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn1 {
+        font-size: 50px;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn2 {
+        font-size: 50px;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .centerm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+      }
+    </style>
+
+    <title>Counter</title>
+  </head>
+  <body class="background">
+    <div>
+      <div id="number" class="me">0</div>
+      <div class="center">
+        <input class="inp" id="fname" />
+      </div>
+
+      <div class="center">
+        <button class="btn2" onclick="Add()">+</button>
+        <button class="btn1" onclick="Subtract()">-</button>
+      </div>
+    </div>
+
+    <script>
+      var value = 0;
+
+      function Add() {
+        var num = document.getElementById("fname").value;
+        num = parseInt(num, 10);
+        value += num;
+        document.getElementById("number").innerHTML = value;
+      }
+      function Subtract() {
+        var num = document.getElementById("fname").value;
+        value -= num;
+        document.getElementById("number").innerHTML = value;
+      }
+    </script>
+  </body>
+</html>
