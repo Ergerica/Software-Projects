@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Click for Color</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 20px;
+        grid-gap: 10px;
+        justify-content: center;
+      }
+      .grid-item {
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+      }
+      #btn1 {
+        background-color: red;
+      }
+      #btn2 {
+        background-color: red;
+      }
+      #btn3 {
+        background-color: green;
+      }
+      #btn4 {
+        background-color: green;
+      }
+      #btn5 {
+        background-color: blue;
+      }
+      #btn6 {
+        background-color: blue;
+      }
+    </style>
+    <script>
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+      function backgroundColor() {
+        document.body.style.background =
+          "rgb(" + red + "," + green + "," + blue + ")";
+      }
+      function redp() {
+        red++;
+        backgroundColor();
+      }
+      function redm() {
+        red--;
+        backgroundColor();
+      }
+      function greenp() {
+        green++;
+        backgroundColor();
+      }
+      function greenm() {
+        green--;
+        backgroundColor();
+      }
+      function bluep() {
+        blue++;
+        backgroundColor();
+      }
+      function bluem() {
+        blue--;
+        backgroundColor();
+      }
+    </script>
+  </head>
+  <body onload="backgroundColor()">
+    <div class="grid-container">
+      <div class="grid-item" onClick="redp()" id="btn1">+</div>
+      <div class="grid-item" onClick="redm()" id="btn2">-</div>
+      <div class="grid-item" onClick="greenp()" id="btn3">+</div>
+      <div class="grid-item" onClick="greenm()" id="btn4">-</div>
+      <div class="grid-item" onClick="bluep()" id="btn5">+</div>
+      <div class="grid-item" onClick="bluem()" id="btn6">-</div>
+    </div>
+  </body>
+</html>

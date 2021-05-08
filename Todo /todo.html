@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To do list</title>
+    <link rel="stylesheet" href="todo.css" />
+    <script src="todo.js"></script>
+  </head>
+  <body>
+    <h1>My To do list</h1>
+    <container>
+      <input
+        onkeypress="ent(event)"
+        type="text"
+        id="text-item"
+        name="fname"
+        placeholder="To do ..."
+      /><br /><br />
+      <button onclick="addB()">Add Items</button>
+    </container>
+
+    <div><ul id="list"></ul></div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #there {
+        visibility: hidden;
+      }
+      #who {
+        visibility: hidden;
+      }
+    </style>
+    <title>Knock Knock</title>
+  </head>
+  <body>
+    <span id="knock"></span>
+    <button onclick="hide()" id="joke">Click here for a joke</button>
+    <button onclick="punchLine()" id="there">Who's there?</button>
+    <button onclick="finaLine()" id="who">..who?</button>
+    <script>
+      function hide() {
+        let jokes = document.getElementById("joke");
+        jokes.style.visibility = "hidden";
+        let knock = document.getElementById("knock");
+        knock.innerHTML = "Knock Knock";
+        let there = document.getElementById("there");
+        there.style.visibility = "visible";
+      }
+      let there = [
+        "candice",
+        "Says",
+        "Voodo",
+        "Dejav",
+        " I am.",
+        "Oink oink ",
+        "Gladys",
+        "Figs",
+        "Snow",
+        "Ken",
+        "Witch",
+      ];
+      let who = [
+        "Candice door open, or am I stuck out here?",
+        "SaysSays me, that's who!",
+        "Voodoo you think you are, asking all these questions?",
+        "Knock! Knock!  ",
+        "You tell me!!",
+        "Make up your mind—are you a pig, or an owl?!",
+        "Gladys the weekend—no homework!",
+        "Figs the doorbell, it's broken!",
+        "Snow laughing matter.",
+        "Ken I come in? It's cold out here.",
+        "Witch one of you will give me some Halloween candy?",
+      ];
+      let num = Math.floor(Math.random() * 10);
+      function punchLine() {
+        let knock = document.getElementById("knock");
+        knock.innerHTML = there[num];
+        let jokes = document.getElementById("there");
+        jokes.style.visibility = "hidden";
+        let therem = document.getElementById("who");
+        therem.style.visibility = "visible";
+      }
+      function finaLine() {
+        let jokes = document.getElementById("who");
+        jokes.style.visibility = "hidden";
+        let knock = document.getElementById("knock");
+        knock.innerHTML = who[num];
+      }
+    </script>
+  </body>
+</html>

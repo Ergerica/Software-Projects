@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        height: 1000;
+        display: grid;
+        margin: 0px;
+      }
+      html {
+        width: 100%;
+      }
+      .wrapper {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 1px;
+        height: 1000;
+      }
+    </style>
+
+    <title>Disco Lights</title>
+  </head>
+  <body class="wrapper" id="bodyl">
+    <script>
+      function randNum() {
+        let arr = [
+          "#DAA520",
+          "#FF69B4",
+          "#B22222",
+          "#1E90FF",
+          "#228B22",
+          "#E9967A",
+          "#9932CC",
+          "#008B8B",
+          "#5F9EA0",
+          "#DEB887",
+          "#FFB6C1",
+          "#FFFACD",
+          "#7B68EE",
+          "#FF6347",
+          "#FFFF00",
+          "#CD853F",
+        ];
+        let nums = Math.floor(Math.random() * arr.length);
+        //document.body.style.backgroundColor = arr[nums];
+        for (let i = 0; i < 100; i++) {
+          let numss = Math.floor(Math.random() * arr.length);
+          divArr[i].style.background = arr[numss];
+        }
+      }
+
+      let divArr = [];
+      for (let i = 0; i < 100; i++) {
+        let m = document.createElement("div");
+        m.style.cssText = "height: 100px;";
+        divArr.push(m);
+        document.body.appendChild(divArr[i]);
+      }
+      console.log(divArr[0].style.background);
+
+      setInterval(randNum, 100);
+    </script>
+  </body>
+</html>
