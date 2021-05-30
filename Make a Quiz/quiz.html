@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Quiz</title>
+    <style>
+      body {
+        background-color: chocolate;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Me quiz</h1>
+      <h3>Figure out your Knowledge about me</h3>
+      <img
+        src="https://domain.me/wp-content/uploads/2018/11/Me-logo-512x512-1-noresize.png"
+        alt="alternatetext"
+      />
+    </div>
+
+    <div>
+      <h4>What is my Favorite Color?</h4>
+      <h5 id="1">green</h5>
+      <h5 id="2">blue</h5>
+      <h5 id="3">yellow</h5>
+      <h5 id="4">pink</h5>
+      <script>
+        //green
+      </script>
+      <h4>Where would I go for fun?</h4>
+      <h5 id="5">The mountains</h5>
+      <h5 id="6">The country Side</h5>
+      <h5 id="7">The beach</h5>
+      <h5 id="8">Just staying home</h5>
+      <script>
+        //The beach
+      </script>
+      <h4>If I were to meet anyone from the past who would it be?</h4>
+      <h5 id="9">Napoleon</h5>
+      <h5 id="10">Annie Oakley</h5>
+      <h5 id="11">Susan B. Anthony</h5>
+      <h5 id="12">Steve Jobs</h5>
+      <script>
+        //Steve Jobs
+      </script>
+      <h4>Where was I born?</h4>
+      <h5 id="13">Maine</h5>
+      <h5 id="14">Santo Domingo</h5>
+      <h5 id="15">Ohio</h5>
+      <h5 id="16">New york</h5>
+      <script>
+        //Maine 1 7 12 13
+      </script>
+
+      <button onclick="Calculate()">Submit</button>
+      <script>
+        let elts = document.getElementsByTagName("h5");
+        var o4 = false;
+        let o8 = false;
+        let o12 = false;
+        let o16 = false;
+        function show(idd) {
+          if (idd < 5 && idd > 0) {
+            if (document.getElementById(idd).style.color == "black" && !o4) {
+              document.getElementById(idd).style.color = "purple";
+              o4 = true;
+            } else if (
+              document.getElementById(idd).style.color == "purple" &&
+              o4
+            ) {
+              document.getElementById(idd).style.color = "black";
+              o4 = false;
+            }
+          }
+          if (idd < 9 && idd > 4) {
+            if (document.getElementById(idd).style.color == "black" && !o8) {
+              document.getElementById(idd).style.color = "purple";
+              o8 = true;
+            } else if (
+              document.getElementById(idd).style.color == "purple" &&
+              o8
+            ) {
+              document.getElementById(idd).style.color = "black";
+              o8 = false;
+            }
+          }
+          if (idd < 13 && idd > 8) {
+            if (document.getElementById(idd).style.color == "black" && !o12) {
+              document.getElementById(idd).style.color = "purple";
+              o12 = true;
+            } else if (
+              document.getElementById(idd).style.color == "purple" &&
+              o12
+            ) {
+              document.getElementById(idd).style.color = "black";
+              o12 = false;
+            }
+          }
+          if (idd < 17 && idd > 12) {
+            if (document.getElementById(idd).style.color == "black" && !o16) {
+              document.getElementById(idd).style.color = "purple";
+              o16 = true;
+            } else if (
+              document.getElementById(idd).style.color == "purple" &&
+              o16
+            ) {
+              document.getElementById(idd).style.color = "black";
+              o16 = false;
+            }
+          }
+        }
+
+        for (let i = elts.length - 1; i >= 0; --i) {
+          document.getElementById(elts[i].id).style.color = "black";
+          elts[i].onclick = function () {
+            console.log();
+            show(elts[i].id);
+            console.log(i);
+          };
+        }
+
+        let score = 0;
+
+        function Calculate() {
+          let counter = 0;
+          document.getElementById(elts[0].id).style.color == "purple"
+            ? (score += 1)
+            : score;
+          document.getElementById(elts[6].id).style.color == "purple"
+            ? (score += 1)
+            : score;
+          document.getElementById(elts[11].id).style.color == "purple"
+            ? (score += 1)
+            : score;
+          document.getElementById(elts[12].id).style.color == "purple"
+            ? (score += 1)
+            : score;
+          for (let i = elts.length - 1; i >= 0; --i) {
+            document.getElementById(elts[i].id).style.color == "purple"
+              ? (counter += 1)
+              : counter;
+          }
+          if (counter == 4) {
+            score < 3
+              ? alert(`Could've tried harder You got ${score}`)
+              : alert(`Congratulations, you got a ${score}`);
+            score = 0;
+          } else alert("You need to give an answer for all of them");
+        }
+      </script>
+    </div>
+    <footer>
+      <p>Author: Erica Ross</p>
+    </footer>
+  </body>
+</html>
